@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void showValues(vector<int> vec);
+void show_values(vector<int> vec);
 int linear_search(const int list[], int val, int length);
 
 int main(int argc, const char * argv[])
@@ -49,15 +49,15 @@ int main(int argc, const char * argv[])
     numbers.push_back(23);
     numbers.push_back(24);
     numbers.push_back(25);
-    showValues(numbers);
+    show_values(numbers);
     
     cout << numbers.at(1) << endl;
     
     numbers.pop_back();
-    showValues(numbers);
+    show_values(numbers);
     
     numbers.clear();
-    showValues(numbers);
+    show_values(numbers);
     cout << numbers.size() << endl;
     
     bool empty = numbers.empty();
@@ -79,7 +79,7 @@ int main(int argc, const char * argv[])
     return 0;
 }
 
-void showValues(vector<int> vec)
+void show_values(vector<int> vec)
 {
     for (int i = 0; i < vec.size(); i++) {
         cout << vec[i] << endl;
