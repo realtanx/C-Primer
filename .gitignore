@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+.DS_Store
+*/xcuserdata
+C++Primer/C++Primer.xcodeproj/project.xcworkspace/xcshareddata
+C++Primer.xcodeproj/project.xcworkspace/xcshareddata
+C++Primer.xcodeproj/project.xcworkspace/xcuserdata
