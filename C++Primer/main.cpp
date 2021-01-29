@@ -10,6 +10,7 @@
 using namespace std;
 
 void showValues(vector<int> vec);
+int linear_search(const int list[], int val, int length);
 
 int main(int argc, const char * argv[])
 {
@@ -62,6 +63,19 @@ int main(int argc, const char * argv[])
     bool empty = numbers.empty();
     cout << empty << endl;
     
+    
+    /** ******************** search *********************/
+    int list[] = {12, 45, 7, 2, 10, 66};
+    int val = 16;
+    int len = sizeof(list)/sizeof(list[0]);
+    int position = linear_search(list, val, len);
+    if (position == -1) {
+        cout << "do not find the value " << val << endl;
+    }
+    else {
+        cout << "find the value " << list[position] << " in the list" << endl;
+    }
+    
     return 0;
 }
 
@@ -70,4 +84,21 @@ void showValues(vector<int> vec)
     for (int i = 0; i < vec.size(); i++) {
         cout << vec[i] << endl;
     }
+}
+
+int linear_search(const int list[], int val, int length)
+{
+    int position = -1, index = 0;
+    bool found = false;
+    
+    while (index < length && !found) {
+        if (val == list[index]) {
+            found = true;
+            position = index;
+        }
+        
+        index++;
+    }
+    
+    return position;
 }
