@@ -9,8 +9,11 @@
 
 using namespace std;
 
+const int SEARCH_NOT_FOUND = -1;
+
 void show_values(vector<int> vec);
 int linear_search(const int list[], int val, int length);
+int binary_search(const int list[], int val, int length);
 
 int main(int argc, const char * argv[])
 {
@@ -69,7 +72,7 @@ int main(int argc, const char * argv[])
     int val = 16;
     int len = sizeof(list)/sizeof(list[0]);
     int position = linear_search(list, val, len);
-    if (position == -1) {
+    if (position == SEARCH_NOT_FOUND) {
         cout << "do not find the value " << val << endl;
     }
     else {
@@ -88,7 +91,7 @@ void show_values(vector<int> vec)
 
 int linear_search(const int list[], int val, int length)
 {
-    int position = -1, index = 0;
+    int position = SEARCH_NOT_FOUND, index = 0;
     bool found = false;
     
     while (index < length && !found) {
@@ -98,6 +101,30 @@ int linear_search(const int list[], int val, int length)
         }
         
         index++;
+    }
+    
+    return position;
+}
+
+// the list must be sorted before searching.
+int binary_search(const int list[], int val, int length)
+{
+    int position = SEARCH_NOT_FOUND;
+    int first = 0;
+    int last = length - 1;
+    
+    while (first <= last) {
+        int middle = (first + last)/2;
+        
+        if (list[middle] == val) {
+            return middle;
+        }
+        else if (val < list[middle]) {
+            last = middle - 1;
+        }
+        else {
+            first = middle + 1;
+        }
     }
     
     return position;
