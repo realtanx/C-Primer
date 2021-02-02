@@ -7,6 +7,8 @@
 #include <string>
 #include <vector>
 
+#include "Rectangle.hpp"
+
 using namespace std;
 
 const int SEARCH_NOT_FOUND = -1;
@@ -14,6 +16,25 @@ const int SEARCH_NOT_FOUND = -1;
 void show_values(vector<int> vec);
 int linear_search(const int list[], int val, int length);
 int binary_search(const int list[], int val, int length);
+
+// class declaration
+class Car {
+private:
+    string name;
+    
+public:
+    void set_name(string);
+    
+    // inline member function
+    string get_name() {
+        return name;
+    }
+};
+
+void Car::set_name(string s)
+{
+    name = s;
+}
 
 int main(int argc, const char * argv[])
 {
@@ -39,8 +60,10 @@ int main(int argc, const char * argv[])
     cout << "the new area is " << area << endl;
      */
         
+    cout << endl;
+    cout << "/********************** vector **********************/" << endl;
+    cout << endl;
     
-    /** ******************** vector *********************/
     vector<int> numbers;
     vector<char> str (10, 'a');
     for (char sVal : str) {
@@ -67,7 +90,10 @@ int main(int argc, const char * argv[])
     cout << empty << endl;
     
     
-    /** ******************** search *********************/
+    cout << endl;
+    cout << "/********************** search **********************/" << endl;
+    cout << endl;
+    
     int list[] = {12, 45, 7, 2, 10, 66};
     int val = 16;
     int len = sizeof(list)/sizeof(list[0]);
@@ -78,6 +104,25 @@ int main(int argc, const char * argv[])
     else {
         cout << "find the value " << list[position] << " in the list" << endl;
     }
+    
+    cout << endl;
+    cout << "/********************** class **********************/" << endl;
+    cout << endl;
+    
+    Car car;
+    car.set_name("Benz");
+    cout << "the car's name is " << car.get_name() << endl;
+    
+    // Dynamically allocate
+    Rectangle *rec = new Rectangle;
+    rec->set_width(20.0);
+    rec->set_height(20.0);
+    
+    cout << "the square's area: " << rec->get_area() << endl;
+    delete rec;
+    rec = nullptr;
+    
+    cout << endl << endl;
     
     return 0;
 }
@@ -129,3 +174,5 @@ int binary_search(const int list[], int val, int length)
     
     return position;
 }
+
+
